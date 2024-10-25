@@ -7,7 +7,20 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Task 1</string>
-    <string name="menu_gallery">Task 2</string>
-    <string name="menu_slideshow">Task 3</string>
+    <string name="menu_task1">Task 1</string>
+    <string name="menu_task2">Task 2</string>
+    <string name="menu_task3">Task 3</string>
+    <string name="menu_task4">Task 4</string>
+    <string name="menu_task5">Task 5</string>
+    <string name="menu_task6">Task 6</string>
+    <string name="menu_task7">Task 7</string>
+    <string name="menu_task8">Task 8</string>
+    <string name="menu_task9">Task 9</string>
+    <string name="menu_task10">Task 10</string>
+    <string name="menu_task11">Task 11</string>
+    <string name="menu_task12">Task 12</string>
+    <string name="menu_task13">Task 13</string>
+    <string name="menu_task14">Task 14</string>
+    <string name="menu_task15">Task 15</string>
+    <string name="menu_task16">Task 16</string>
 </resources>

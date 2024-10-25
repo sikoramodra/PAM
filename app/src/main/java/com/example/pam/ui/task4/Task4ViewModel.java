@@ -1,16 +1,16 @@
-package com.example.pam.ui.gallery;
+package com.example.pam.ui.task4;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class Task4ViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public Task4ViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is task2 fragment");
+        mText.setValue("This is task4 fragment");
     }
 
     public LiveData<String> getText() {

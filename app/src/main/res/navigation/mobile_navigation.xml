@@ -3,23 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_task1">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_task1"
         android:name="com.example.pam.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_task1"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_task2"
         android:name="com.example.pam.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_task2"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_task3"
         android:name="com.example.pam.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_task3"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_task4"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task4"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task5"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task5"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task6"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task6"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task7"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task7"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task8"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task8"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task9"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task9"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task10"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task10"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task11"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task11"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task12"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task12"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task13"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task13"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task14"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task14"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task15"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task15"
+        tools:layout="@layout/fragment_task4" />
+
+    <fragment
+        android:id="@+id/nav_task16"
+        android:name="com.example.pam.ui.task4.Task4Fragment"
+        android:label="@string/menu_task16"
+        tools:layout="@layout/fragment_task4" />
 </navigation>

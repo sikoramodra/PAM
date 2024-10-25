@@ -1,4 +1,4 @@
-package com.example.pam.ui.home;
+package com.example.pam.ui.task4;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.pam.databinding.FragmentHomeBinding;
+import com.example.pam.databinding.FragmentTask4Binding;
 
-public class HomeFragment extends Fragment {
+public class Task4Fragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentTask4Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        Task4ViewModel galleryViewModel =
+                new ViewModelProvider(this).get(Task4ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentTask4Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTask1;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textTask4;
+        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
