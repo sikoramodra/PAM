@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/nav_task1"
-        android:name="com.example.pam.ui.home.HomeFragment"
+        android:name="com.example.pam.ui.task1.Task1Fragment"
         android:label="@string/menu_task1"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_task1" />
 
     <fragment
         android:id="@+id/nav_task2"
-        android:name="com.example.pam.ui.gallery.GalleryFragment"
+        android:name="com.example.pam.ui.task2.Task2Fragment"
         android:label="@string/menu_task2"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_task2" />
 
     <fragment
         android:id="@+id/nav_task3"
-        android:name="com.example.pam.ui.slideshow.SlideshowFragment"
+        android:name="com.example.pam.ui.task3.Task3Fragment"
         android:label="@string/menu_task3"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_task3" />
 
     <fragment
         android:id="@+id/nav_task4"

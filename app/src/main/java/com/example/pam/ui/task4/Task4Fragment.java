@@ -18,14 +18,14 @@ public class Task4Fragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Task4ViewModel galleryViewModel =
+        Task4ViewModel task4ViewModel =
                 new ViewModelProvider(this).get(Task4ViewModel.class);
 
         binding = FragmentTask4Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textTask4;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        task4ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

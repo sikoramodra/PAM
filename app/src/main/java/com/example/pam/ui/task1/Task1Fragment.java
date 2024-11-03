@@ -1,4 +1,4 @@
-package com.example.pam.ui.slideshow;
+package com.example.pam.ui.task1;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.pam.databinding.FragmentSlideshowBinding;
+import com.example.pam.databinding.FragmentTask1Binding;
 
-public class SlideshowFragment extends Fragment {
+public class Task1Fragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentTask1Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        Task1ViewModel task1ViewModel =
+                new ViewModelProvider(this).get(Task1ViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentTask1Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTask3;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textTask1;
+        task1ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

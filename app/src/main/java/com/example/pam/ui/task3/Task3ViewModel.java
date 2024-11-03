@@ -1,14 +1,14 @@
-package com.example.pam.ui.slideshow;
+package com.example.pam.ui.task3;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class Task3ViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public Task3ViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is task3 fragment");
     }

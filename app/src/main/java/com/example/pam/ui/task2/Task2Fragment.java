@@ -1,4 +1,4 @@
-package com.example.pam.ui.home;
+package com.example.pam.ui.task2;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.pam.databinding.FragmentHomeBinding;
+import com.example.pam.databinding.FragmentTask2Binding;
 
-public class HomeFragment extends Fragment {
+public class Task2Fragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentTask2Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        Task2ViewModel task2ViewModel =
+                new ViewModelProvider(this).get(Task2ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentTask2Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTask1;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textTask2;
+        task2ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
