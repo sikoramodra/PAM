@@ -2,7 +2,7 @@ package com.example.pam.ui.task3;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
-import android.content.DialogInterface;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,10 +12,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.pam.R;
 import com.example.pam.databinding.FragmentTask3Binding;
 
 import java.util.ArrayList;
@@ -27,6 +30,16 @@ public class Task3Fragment extends Fragment {
 
     private FragmentTask3Binding binding;
 
+    /**
+     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
+     */
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+
+    /**
+     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+     */
+    private CharSequence mTitle;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -35,9 +48,10 @@ public class Task3Fragment extends Fragment {
 
         final ArrayList<String> list = new ArrayList<>();
         final MyCustomAdapter adapter = new MyCustomAdapter(this.getContext(), list);
+
         SwipeDismissListViewTouchListener touchListener =
                 new SwipeDismissListViewTouchListener(
-                        binding.listTask3,
+                        binding.list,
                         new SwipeDismissListViewTouchListener.DismissCallbacks() {
                             @Override
                             public boolean canDismiss(int position) {
@@ -62,8 +76,8 @@ public class Task3Fragment extends Fragment {
                         });
 
 
-        myList = binding.listTask3;
-        ImageButton fabImageButton = binding.fab_image_button;
+        myList = binding.list;
+        ImageButton fabImageButton = binding.fabImageButton;
 
         fabImageButton.setOnClickListener(v -> {
                 list.add("New Item");
@@ -108,5 +122,72 @@ public class Task3Fragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        // update the main content by replacing fragments
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        switch (position){
+            case 0:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 1:
+                Intent intent = new Intent(this, About.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
+
+    public void onSectionAttached(int number) {
+        switch (number) {
+            case 1:
+                mTitle = getString(R.string.title_section1);
+                break;
+            case 2:
+                mTitle = getString(R.string.title_section2);
+                break;
+        }
+    }
+
+    private void updateTodoList() {
+        todoListSQLHelper = new TodoListSQLHelper(getContext());
+        SQLiteDatabase sqLiteDatabase = todoListSQLHelper.getReadableDatabase();
+
+        //cursor to read todo task list from database
+        Cursor cursor = sqLiteDatabase.query(TodoListSQLHelper.TABLE_NAME,
+                new String[]{TodoListSQLHelper._ID, TodoListSQLHelper.COL1_TASK},
+                null, null, null, null, null);
+
+        //binds the todo task list with the UI
+        todoListAdapter = new SimpleCursorAdapter(
+                getContext(),
+                R.layout.due,
+                cursor,
+                new String[]{TodoListSQLHelper.COL1_TASK},
+                new int[]{R.id.due_text_view},
+                0
+        );
+
+        myList.setAdapter(todoListAdapter);
+    }
+
+    //closing the todo task item
+    public void onDoneButtonClick(View view) {
+        View v = (View) view.getParent();
+        TextView todoTV = (TextView) v.findViewById(R.id.due_text_view);
+        String todoTaskItem = todoTV.getText().toString();
+
+        String deleteTodoItemSql = "DELETE FROM " + TodoListSQLHelper.TABLE_NAME +
+                " WHERE " + TodoListSQLHelper.COL1_TASK + " = '" + todoTaskItem + "'";
+
+        todoListSQLHelper = new TodoListSQLHelper(getContext());
+        SQLiteDatabase sqlDB = todoListSQLHelper.getWritableDatabase();
+        sqlDB.execSQL(deleteTodoItemSql);
+        updateTodoList();
+        sqlDB.close();
     }
 }

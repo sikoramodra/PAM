@@ -15,10 +15,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Task2Fragment extends Fragment {
-
     private FragmentTask2Binding binding;
     private int index = 0;
-    private List<Task2Imgs> arr = Arrays.asList(
+    private final List<Task2Imgs> arr = Arrays.asList(
             new Task2Imgs(R.drawable.sikoramodra, "Maecenas semper imperdiet sapien, eget tempor orci sodales nec. In in accumsan ante. Nunc sodales, quam et aliquet bibendum, quam neque mattis purus, eget luctus risus tortor eu nunc."),
             new Task2Imgs(R.drawable.arch, "Cras dolor massa, finibus eget magna vel, faucibus dapibus tortor. Suspendisse potenti. Duis urna mi, egestas in dolor eget, ultricies imperdiet enim. Nam egestas sem eget ullamcorper rutrum."),
             new Task2Imgs(R.drawable.tux, "Maecenas semper imperdiet sapien, eget tempor orci sodales nec. In in accumsan ante. Nunc sodales, quam et aliquet bibendum, quam neque mattis purus, eget luctus risus tortor eu nunc."),

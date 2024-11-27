@@ -5,6 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
+import java.util.ArrayList;
+
 public class TodoListSQLHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "chaos.list.db";

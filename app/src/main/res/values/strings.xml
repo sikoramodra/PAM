@@ -23,4 +23,7 @@
     <string name="menu_task14">Task 14</string>
     <string name="menu_task15">Task 15</string>
     <string name="menu_task16">Task 16</string>
+
+    <string name="title_section1">List</string>
+    <string name="title_section2">About</string>
 </resources>

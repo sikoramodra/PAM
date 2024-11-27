@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.pam.R;
+
 import java.util.ArrayList;
 
 public class MyCustomAdapter extends BaseAdapter {
