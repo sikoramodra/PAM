@@ -13,63 +13,62 @@ import com.example.pam.R;
 import java.util.ArrayList;
 
 public class MyCustomAdapter extends BaseAdapter {
-    private ArrayList<String> mListItems;
-    private LayoutInflater mLayoutInflater;
-    public MyCustomAdapter(Context context, ArrayList<String> arrayList){
-        mListItems = arrayList;
-        //get the layout inflater
-        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    private final ArrayList<String> mListItems;
+    private final LayoutInflater mLayoutInflater;
+    private final OnTaskDeleteListener deleteListener;
+
+    public MyCustomAdapter(Context context, ArrayList<String> arrayList, OnTaskDeleteListener deleteListener) {
+        this.mListItems = arrayList;
+        this.mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.deleteListener = deleteListener;
     }
+
     @Override
     public int getCount() {
-        //getCount() represents how many items are in the list
         return mListItems.size();
     }
+
     @Override
-    //get the data of an item from a specific position
-    //i represents the position of the item in the list
-    public Object getItem(int i) {
-        return null;
+    public Object getItem(int position) {
+        return mListItems.get(position);
     }
+
     @Override
-    //get the position id of the item from the list
-    public long getItemId(int i) {
-        return 0;
+    public long getItemId(int position) {
+        return position;
     }
+
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
-        // create a ViewHolder reference
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        //check to see if the reused view is null or not, if is not null then reuse it
-        if (view == null) {
+
+        if (convertView == null) {
+            convertView = mLayoutInflater.inflate(R.layout.due, parent, false);
+
             holder = new ViewHolder();
-            view = mLayoutInflater.inflate(R.layout.due, null);
-            holder.itemName = (TextView) view.findViewById(R.id.due_text_view);
-            holder.imageButton = (ImageButton) view.findViewById(R.id.delete_button);
-            // the setTag is used to store the data within this view
-            view.setTag(holder);
+            holder.itemName = convertView.findViewById(R.id.due_text_view);
+            holder.imageButton = convertView.findViewById(R.id.delete_button);
+            convertView.setTag(holder);
         } else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)view.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
-        //get the string item from the position "position" from array list to put it on the TextView
-        String stringItem = mListItems.get(position);
-        if (stringItem != null) {
-            if (holder.itemName != null) {
-                //set the item name on the TextView
-                holder.itemName.setText(stringItem);
-            }
-        }
-        //this method must return the view corresponding to the data at the specified position.
-        return view;
+
+        // Set task name
+        String task = mListItems.get(position);
+        holder.itemName.setText(task);
+
+        // Handle delete button click
+        holder.imageButton.setOnClickListener(v -> deleteListener.onTaskDelete(task));
+
+        return convertView;
     }
-    /**
-     * Static class used to avoid the calling of "findViewById" every time the getView() method is called,
-     * because this can impact to your application performance when your list is too big. The class is static so it
-     * cache all the things inside once it's created.
-     */
+
+    public interface OnTaskDeleteListener {
+        void onTaskDelete(String task);
+    }
+
     private static class ViewHolder {
-        protected TextView itemName;
-        protected ImageButton imageButton;
+        TextView itemName;
+        ImageButton imageButton;
     }
 }
